@@ -1,0 +1,16 @@
+*.xcuserstate
+*.xccheckout
+timeline.xctimeline
+playground.xcworkspace
+build.config
+Pods/**
+build
+builds
+rvm.env
+xcuserdata/
+test_reports/
+DerivedData/
+/appium/
+coverage/
+nightly_log/
+.vscode/
