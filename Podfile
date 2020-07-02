@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-flutter_application_path = '../flutter_master'
-puts `cd #{flutter_application_path} && flutter clean && flutter pub get`
+flutter_application_path = './flutter/flutter_master'
+puts `cd #{flutter_application_path} && flutter pub get`
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 target 'FlutterHost' do

@@ -9,20 +9,20 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `../flutter_master/.ios/Flutter/engine`)
-  - flutter_master (from `../flutter_master/.ios/Flutter`)
-  - FlutterPluginRegistrant (from `../flutter_master/.ios/Flutter/FlutterPluginRegistrant`)
-  - webview_flutter (from `../flutter_master/.ios/Flutter/.symlinks/webview_flutter/ios`)
+  - Flutter (from `flutter/flutter_master/.ios/Flutter/engine`)
+  - flutter_master (from `flutter/flutter_master/.ios/Flutter`)
+  - FlutterPluginRegistrant (from `flutter/flutter_master/.ios/Flutter/FlutterPluginRegistrant`)
+  - webview_flutter (from `flutter/flutter_master/.ios/Flutter/.symlinks/webview_flutter/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: "../flutter_master/.ios/Flutter/engine"
+    :path: flutter/flutter_master/.ios/Flutter/engine
   flutter_master:
-    :path: "../flutter_master/.ios/Flutter"
+    :path: flutter/flutter_master/.ios/Flutter
   FlutterPluginRegistrant:
-    :path: "../flutter_master/.ios/Flutter/FlutterPluginRegistrant"
+    :path: flutter/flutter_master/.ios/Flutter/FlutterPluginRegistrant
   webview_flutter:
-    :path: "../flutter_master/.ios/Flutter/.symlinks/webview_flutter/ios"
+    :path: flutter/flutter_master/.ios/Flutter/.symlinks/webview_flutter/ios
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   FlutterPluginRegistrant: b1367fc1e5beb7d258a9c449cb1d9af45f434a13
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: b1600ba2ac1893939652472b0c4f169d5f763f74
+PODFILE CHECKSUM: 7ce53984deee2358ebb7b84d024a96ddb099af5a
 
 COCOAPODS: 1.7.5
