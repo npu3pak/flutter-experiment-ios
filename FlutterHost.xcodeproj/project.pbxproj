@@ -164,15 +164,15 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/./flutter/flutter_master/.metadata",
-				"${SRCROOT}/flutter/flutter_master/.ios/Flutter/App.framework/App",
-				"${SRCROOT}/flutter/flutter_master/.ios/Flutter/engine/Flutter.framework/Flutter",
-				"${SRCROOT}/flutter/flutter_master/.ios/Flutter/flutter_export_environment.sh",
+				"${SRCROOT}/./Flutter/flutter_master/.metadata",
+				"${SRCROOT}/Flutter/flutter_master/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/Flutter/flutter_master/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/Flutter/flutter_master/.ios/Flutter/flutter_export_environment.sh",
 			);
 			name = "[CP-User] Run Flutter Build Script";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/flutter/flutter_master/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/Flutter/flutter_master/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
 		};
 		1979DCB4CF1BCE953D3772D2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

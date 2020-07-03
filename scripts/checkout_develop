@@ -1,0 +1,10 @@
+git clone git@github.com:npu3pak/flutter-experiment-flutter.git Flutter
+cd Flutter
+git checkout develop
+git pull
+
+cd flutter_master/
+flutter pub get
+cd ../..
+
+pod install
