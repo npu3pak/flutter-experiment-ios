@@ -11,4 +11,6 @@ target 'FlutterHost' do
   
   # Pods for FlutterHost
   install_all_flutter_pods(flutter_application_path)
+  
+  pod 'SegueCoordinator'
 end

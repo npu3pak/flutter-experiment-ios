@@ -5,6 +5,7 @@ PODS:
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
     - webview_flutter
+  - SegueCoordinator (0.9.1)
   - webview_flutter (0.0.1):
     - Flutter
 
@@ -12,7 +13,12 @@ DEPENDENCIES:
   - Flutter (from `Flutter/flutter_master/.ios/Flutter/engine`)
   - flutter_master (from `Flutter/flutter_master/.ios/Flutter`)
   - FlutterPluginRegistrant (from `Flutter/flutter_master/.ios/Flutter/FlutterPluginRegistrant`)
+  - SegueCoordinator
   - webview_flutter (from `Flutter/flutter_master/.ios/Flutter/.symlinks/webview_flutter/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SegueCoordinator
 
 EXTERNAL SOURCES:
   Flutter:
@@ -28,8 +34,9 @@ SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_master: 2bc5551a75c83ea8cf69c0a76d5007cadc08cc0f
   FlutterPluginRegistrant: b1367fc1e5beb7d258a9c449cb1d9af45f434a13
+  SegueCoordinator: a810064a7f774ccf10d45384c037f69906b8a2ce
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: 3ecc9a67c12edb23f67a623c0228abcd6a6a2a23
+PODFILE CHECKSUM: 1175b15202da56b7af3ca0c80ae42cb91d667f5c
 
 COCOAPODS: 1.7.5

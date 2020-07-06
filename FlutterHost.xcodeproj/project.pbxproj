@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		32B88C8C03EB9776FF6545FD /* Pods_FlutterHost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001BAC875FAA69C37F254E20 /* Pods_FlutterHost.framework */; };
+		DB0CD99724B2E1D10001B17A /* FlutterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CD99624B2E1D10001B17A /* FlutterModule.swift */; };
+		DB31D63624B2F6F7005A4D01 /* NativeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31D63524B2F6F7005A4D01 /* NativeCoordinator.swift */; };
 		DB59B6EB24AB23B4000B083E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59B6EA24AB23B4000B083E /* AppDelegate.swift */; };
-		DB59B6EF24AB23B4000B083E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59B6EE24AB23B4000B083E /* ViewController.swift */; };
+		DB59B6EF24AB23B4000B083E /* NativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB59B6EE24AB23B4000B083E /* NativeViewController.swift */; };
 		DB59B6F224AB23B4000B083E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB59B6F024AB23B4000B083E /* Main.storyboard */; };
 		DB59B6F424AB23B5000B083E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB59B6F324AB23B5000B083E /* Assets.xcassets */; };
 		DB59B6F724AB23B5000B083E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB59B6F524AB23B5000B083E /* LaunchScreen.storyboard */; };
@@ -19,9 +21,11 @@
 		001BAC875FAA69C37F254E20 /* Pods_FlutterHost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlutterHost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		875535AB8E7F2C2A4E859D08 /* Pods-FlutterHost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterHost.debug.xcconfig"; path = "Target Support Files/Pods-FlutterHost/Pods-FlutterHost.debug.xcconfig"; sourceTree = "<group>"; };
 		ABBECEFAF10374696662B9B9 /* Pods-FlutterHost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterHost.release.xcconfig"; path = "Target Support Files/Pods-FlutterHost/Pods-FlutterHost.release.xcconfig"; sourceTree = "<group>"; };
+		DB0CD99624B2E1D10001B17A /* FlutterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterModule.swift; sourceTree = "<group>"; };
+		DB31D63524B2F6F7005A4D01 /* NativeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeCoordinator.swift; sourceTree = "<group>"; };
 		DB59B6E724AB23B4000B083E /* FlutterHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlutterHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB59B6EA24AB23B4000B083E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB59B6EE24AB23B4000B083E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB59B6EE24AB23B4000B083E /* NativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewController.swift; sourceTree = "<group>"; };
 		DB59B6F124AB23B4000B083E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB59B6F324AB23B5000B083E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB59B6F624AB23B5000B083E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,12 +73,14 @@
 		DB59B6E924AB23B4000B083E /* FlutterHost */ = {
 			isa = PBXGroup;
 			children = (
+				DB59B6F824AB23B5000B083E /* Info.plist */,
 				DB59B6EA24AB23B4000B083E /* AppDelegate.swift */,
-				DB59B6EE24AB23B4000B083E /* ViewController.swift */,
-				DB59B6F024AB23B4000B083E /* Main.storyboard */,
+				DB0CD99624B2E1D10001B17A /* FlutterModule.swift */,
+				DB31D63524B2F6F7005A4D01 /* NativeCoordinator.swift */,
+				DB59B6EE24AB23B4000B083E /* NativeViewController.swift */,
 				DB59B6F324AB23B5000B083E /* Assets.xcassets */,
 				DB59B6F524AB23B5000B083E /* LaunchScreen.storyboard */,
-				DB59B6F824AB23B5000B083E /* Info.plist */,
+				DB59B6F024AB23B4000B083E /* Main.storyboard */,
 			);
 			path = FlutterHost;
 			sourceTree = "<group>";
@@ -220,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB59B6EF24AB23B4000B083E /* ViewController.swift in Sources */,
+				DB0CD99724B2E1D10001B17A /* FlutterModule.swift in Sources */,
+				DB31D63624B2F6F7005A4D01 /* NativeCoordinator.swift in Sources */,
+				DB59B6EF24AB23B4000B083E /* NativeViewController.swift in Sources */,
 				DB59B6EB24AB23B4000B083E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlutterHost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iSuperCitizen.FlutterHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,6 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlutterHost/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = iSuperCitizen.FlutterHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
