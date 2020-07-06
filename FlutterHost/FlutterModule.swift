@@ -64,6 +64,7 @@ class FlutterViewController: Flutter.FlutterViewController {
             case "pop": self?.pop()
             case "showFlutterBrowser": self?.delegate?.showFlutterBrowser()
             case "showFlutterText": self?.delegate?.showFlutterText()
+            case "showNative": self?.delegate?.showNative()
             default: print("Unknown Method \(call.method)")
             }
         }
@@ -96,6 +97,9 @@ class FlutterViewController: Flutter.FlutterViewController {
         }
         
         lastRoute = route
-        channel.invokeMethod("changeRoute", arguments: route)
+        channel.invokeMethod(
+            animated ? "changeRouteAnimated" : "changeRoute",
+            arguments: route
+        )
     }
 }

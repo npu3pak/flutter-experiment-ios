@@ -25,6 +25,7 @@ class NativeCoordinator: SegueCoordinator {
             $0.onShowFlutterText = showFlutterText
             $0.onShowFlutterBrowser = showFlutterBrowser
             $0.onShowNative = showNative
+            $0.onShowMenu = showFlutterMenu
         }
     }
     
@@ -36,11 +37,16 @@ class NativeCoordinator: SegueCoordinator {
         flutterModule.push(route: "browser", navigationController: rootNavigationController)
     }
     
+    func showFlutterMenu() {
+        flutterModule.push(route: "menu", navigationController: rootNavigationController)
+    }
+    
     func showNative() {
         pushInitial(type: NativeViewController.self) {
             $0.onShowFlutterText = showFlutterText
             $0.onShowFlutterBrowser = showFlutterBrowser
             $0.onShowNative = showNative
+            $0.onShowMenu = showFlutterMenu
         }
     }
 }

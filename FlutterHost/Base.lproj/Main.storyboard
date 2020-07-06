@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xmh-8w-uqp">
-                                <rect key="frame" x="179" y="400" width="56" height="106"/>
+                                <rect key="frame" x="179" y="381" width="56" height="144"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sly-zZ-MPT">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
@@ -37,6 +38,13 @@
                                         <state key="normal" title="Native"/>
                                         <connections>
                                             <action selector="onShowNativeScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6h-Vy-Fi0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx9-h9-fWU">
+                                        <rect key="frame" x="0.0" y="114" width="56" height="30"/>
+                                        <state key="normal" title="Menu"/>
+                                        <connections>
+                                            <action selector="onShowMenuScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3K8-8E-j8s"/>
                                         </connections>
                                     </button>
                                 </subviews>
