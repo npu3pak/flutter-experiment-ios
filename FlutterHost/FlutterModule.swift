@@ -21,7 +21,6 @@ class FlutterModule {
     
     private let engine = FlutterEngine(name: "flutter engine")
     private var lastNavigationController: UINavigationController?
-    private var lastRoute: String?
     
     private lazy var channel = FlutterMethodChannel(name: "channel", binaryMessenger: engine.binaryMessenger)
     
@@ -44,7 +43,6 @@ class FlutterModule {
     }
     
     func clear() {
-        lastRoute = nil
         channel.invokeMethod("clearRoute", arguments: nil)
     }
     
@@ -52,23 +50,18 @@ class FlutterModule {
         lastNavigationController = navigationController;
         
         if navigationController.topViewController is FlutterViewController {
-            pushRoute(route, animated: true)
+            pushRoute(route, fromFlutter: true)
         } else {
             engine.viewController = nil
             let controller = FlutterViewController(engine: engine, nibName: nil, bundle: nil)
-            pushRoute(route, animated: false)
+            pushRoute(route, fromFlutter: false)
             navigationController.pushViewController(controller, animated: true)
         }
     }
     
-    private func pushRoute(_ route: String, animated: Bool) {
-        guard lastRoute != route else {
-            return
-        }
-        
-        lastRoute = route
+    private func pushRoute(_ route: String, fromFlutter: Bool) {
         channel.invokeMethod(
-            animated ? "pushRouteAnimated" : "pushRoute",
+            fromFlutter ? "pushRouteFromFlutter" : "pushRouteFromNative",
             arguments: route
         )
     }
@@ -79,9 +72,9 @@ class FlutterModule {
         }
         
         nc.popViewController(animated: true)
-//        if let topFlutterController = nc.viewControllers.last(where: {$0 is FlutterViewController}) {
-//            engine.viewController = topFlutterController as! FlutterViewController
-//        }
+        if let topFlutterController = nc.viewControllers.last(where: {$0 is FlutterViewController}) {
+            engine.viewController = topFlutterController as! FlutterViewController
+        }
     }
 }
 
