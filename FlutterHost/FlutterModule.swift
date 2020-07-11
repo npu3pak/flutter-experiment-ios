@@ -42,10 +42,6 @@ class FlutterModule {
         }
     }
     
-    func clear() {
-        channel.invokeMethod("clearRoute", arguments: nil)
-    }
-    
     func push(route: String, navigationController: UINavigationController) {
         lastNavigationController = navigationController;
         

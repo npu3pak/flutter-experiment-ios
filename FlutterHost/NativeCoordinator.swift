@@ -19,13 +19,12 @@ class NativeCoordinator: SegueCoordinator {
     }
     
     func start() {
-        flutterModule.clear()
-        
         setInitial(type: NativeViewController.self) {
             $0.onShowFlutterText = showFlutterText
             $0.onShowFlutterBrowser = showFlutterBrowser
             $0.onShowNative = showNative
             $0.onShowMenu = showFlutterMenu
+            $0.onShowChild = showFlutterChild
         }
     }
     
@@ -47,7 +46,12 @@ class NativeCoordinator: SegueCoordinator {
             $0.onShowFlutterBrowser = showFlutterBrowser
             $0.onShowNative = showNative
             $0.onShowMenu = showFlutterMenu
+            $0.onShowChild = showFlutterChild
         }
+    }
+    
+    func showFlutterChild() {
+        flutterModule.push(route: "child", navigationController: rootNavigationController)
     }
 }
 
