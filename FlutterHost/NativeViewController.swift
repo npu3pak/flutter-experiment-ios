@@ -16,6 +16,7 @@ class NativeViewController: UIViewController {
     var onShowFlutterText: (() -> Void)?
     var onShowNative: (() -> Void)?
     var onShowMenu: (() -> Void)?
+    var onShowChild: (() -> Void)?
     
     @IBAction func onShowScreenWithBrowser(_ sender: Any) {
         onShowFlutterBrowser?()
@@ -31,5 +32,9 @@ class NativeViewController: UIViewController {
 
     @IBAction func onShowMenuScreen(_ sender: Any) {
         onShowMenu?()
+    }
+
+    @IBAction func onShowChild(_ sender: Any) {
+        onShowChild?()
     }
 }

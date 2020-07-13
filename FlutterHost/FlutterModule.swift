@@ -20,45 +20,17 @@ class FlutterModule {
     weak var delegate: FlutterModuleDelegate?
     
     private let engine = FlutterEngine(name: "flutter engine")
-    private lazy var controller = FlutterViewController(engine: engine)
+    private var lastNavigationController: UINavigationController?
+    
+    private lazy var channel = FlutterMethodChannel(name: "channel", binaryMessenger: engine.binaryMessenger)
     
     func startEngine() {
         engine.run()
         GeneratedPluginRegistrant.register(with: engine)
+        listenChannel()
     }
     
-    func clear() {
-        controller.clearRoute()
-    }
-    
-    func push(route: String, navigationController: UINavigationController) {
-        if navigationController.topViewController is FlutterViewController {
-            controller.showRoute(route, animated: true)
-        } else {
-            controller.delegate = delegate
-            controller.showRoute(route, animated: false)
-            navigationController.pushViewController(controller, animated: true)
-        }
-    }
-}
-
-class FlutterViewController: Flutter.FlutterViewController {
-    
-    weak var delegate: FlutterModuleDelegate?
-    
-    private var lastRoute: String?
-    private lazy var channel = FlutterMethodChannel(name: "channel", binaryMessenger: binaryMessenger)
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    fileprivate init(engine: FlutterEngine) {
-        super.init(engine: engine, nibName: nil, bundle: nil)
-        
-        splashScreenView = UIView()
-        splashScreenView.backgroundColor = UIColor.white;
-        
+    private func listenChannel() {
         channel.setMethodCallHandler { [weak self] call, _ in
             switch call.method {
             case "pop": self?.pop()
@@ -70,6 +42,40 @@ class FlutterViewController: Flutter.FlutterViewController {
         }
     }
     
+    func push(route: String, navigationController: UINavigationController) {
+        lastNavigationController = navigationController;
+        
+        if navigationController.topViewController is FlutterViewController {
+            pushRoute(route, fromFlutter: true)
+        } else {
+            engine.viewController = nil
+            let controller = FlutterViewController(engine: engine, nibName: nil, bundle: nil)
+            pushRoute(route, fromFlutter: false)
+            navigationController.pushViewController(controller, animated: true)
+        }
+    }
+    
+    private func pushRoute(_ route: String, fromFlutter: Bool) {
+        channel.invokeMethod(
+            fromFlutter ? "pushRouteFromFlutter" : "pushRouteFromNative",
+            arguments: route
+        )
+    }
+    
+    private func pop() {
+        guard let nc = lastNavigationController else {
+            return
+        }
+        
+        nc.popViewController(animated: true)
+        if let topFlutterController = nc.viewControllers.last(where: {$0 is FlutterViewController}) {
+            engine.viewController = topFlutterController as! FlutterViewController
+        }
+    }
+}
+
+class FlutterViewController: Flutter.FlutterViewController {
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -80,27 +86,6 @@ class FlutterViewController: Flutter.FlutterViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    private func pop() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    fileprivate func clearRoute() {
-        lastRoute = nil
-        channel.invokeMethod("clearRoute", arguments: nil)
-    }
-    
-    fileprivate func showRoute(_ route: String, animated: Bool) {
-        guard route != lastRoute else {
-            return
-        }
-        
-        lastRoute = route
-        channel.invokeMethod(
-            animated ? "changeRouteAnimated" : "changeRoute",
-            arguments: route
-        )
     }
 }
 
